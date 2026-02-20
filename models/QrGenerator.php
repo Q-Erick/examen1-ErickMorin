@@ -78,13 +78,15 @@ class QrGenerator
     {
         $level = self::ERROR_LEVELS[$errorLevel] ?? ErrorCorrectionLevel::Medium;
 
-        $qrCode = QrCode::create($content)
-            ->setEncoding(new Encoding('UTF-8'))
-            ->setErrorCorrectionLevel($level)
-            ->setSize($size)
-            ->setMargin(10)
-            ->setForegroundColor(new Color(0, 0, 0))
-            ->setBackgroundColor(new Color(255, 255, 255));
+        $qrCode = new QrCode(
+            data: $content,
+            encoding: new Encoding('UTF-8'),
+            errorCorrectionLevel: $level,
+            size: $size,
+            margin: 10,
+            foregroundColor: new Color(0, 0, 0),
+            backgroundColor: new Color(255, 255, 255)
+        );
 
         $result = $this->writer->write($qrCode);
         return $result->getString();
