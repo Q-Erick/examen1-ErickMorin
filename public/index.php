@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 require_once __DIR__ . '/../core/Router.php';
+require_once __DIR__ . '/../resources/v1/QrResource.php';
 
 $basePath = dirname($_SERVER['SCRIPT_NAME']);
 
