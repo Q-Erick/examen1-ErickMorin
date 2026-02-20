@@ -68,7 +68,7 @@ class QrGenerator
             throw new InvalidArgumentException("Longitud inválida. Debe estar entre -180 y 180.");
         }
 
-        $content = "geo:{$lat},{$lng}";
+        $content = "geo:{$lat},{$lng}?q={$lat},{$lng}";
         return $this->generate($content, $size, $errorLevel);
     }
 
